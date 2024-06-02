@@ -37,11 +37,11 @@ with webdriver.Chrome() as browser:
         # Нажмите на кнопку "Проверить": если вставлен корректный HEX, то на кнопке появится "ОК".
         block_tag.find_element(By.XPATH, './button').click()
 
-# нажмите на кнопку "Проверить все элементы"
-browser.find_element(By.CSS_SELECTOR, 'body>button').click()
+    # нажмите на кнопку "Проверить все элементы"
+    browser.find_element(By.CSS_SELECTOR, 'body>button').click()
 
-# Из алерт-окна получите числовой код
-print(browser.switch_to.alert.text)
+    # Из алерт-окна получите числовой код
+    print(browser.switch_to.alert.text)
 
 finish = time.time()
 print(finish - start)
