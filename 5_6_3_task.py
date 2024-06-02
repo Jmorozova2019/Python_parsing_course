@@ -6,7 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-base_url = 'https://parsinger.ru/methods/5/'
+base_url = '...'
 
 with webdriver.Chrome() as webdriver:
     webdriver.get(base_url + 'index.html')
@@ -17,12 +17,10 @@ with webdriver.Chrome() as webdriver:
     for url in list_url:
         webdriver.get(url)
         cookies = webdriver.get_cookies()
-        pprint(cookies)
         for cookie in cookies:
             list_expiry[url] = cookie['expiry']
-        webdriver.quit()
 
-ssd = sorted(list_expiry, key=list_expiry.__getitem__)
-k = ssd[-1]
-webdriver.get(k)
-print(webdriver.find_elements(By.ID, 'result').text)
+    ssd = sorted(list_expiry, key=list_expiry.__getitem__)
+    k = ssd[-1]
+    webdriver.get(k)
+    print(webdriver.find_element(By.ID, 'result').text)  
